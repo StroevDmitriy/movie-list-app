@@ -47,13 +47,16 @@
         :movie="movie"
       />
     </div>
-    <div class="search" v-else>Search</div>
+    <div class="search" v-else>
+      <Search />
+    </div>
   </main>
 </template>
 
 <script setup lang="ts">
 import { useMovieStore } from "./stores/MovieStore";
 import Movie from "./components/Movie.vue";
+import Search from "./components/Search.vue";
 
 const setTab = (id: number) => {
   movieStore.setActiveTab(id);
@@ -62,7 +65,7 @@ const setTab = (id: number) => {
 const movieStore = useMovieStore();
 </script>
 
-<style scoped>
+<style>
 .header {
   display: flex;
   justify-content: center;

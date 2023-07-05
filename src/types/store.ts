@@ -3,6 +3,11 @@ export interface IState {
   activeTab: number;
 }
 
+export interface ISearchState {
+  movies: IMovie[];
+  loader: boolean;
+}
+
 export interface IMovie {
   id: number;
   original_title: string | null | undefined;
@@ -10,4 +15,5 @@ export interface IMovie {
   poster_path: string | null | undefined;
   release_date: string | null | undefined;
   isWatched: boolean | null | undefined;
+  // isSearch?: boolean;
 }
