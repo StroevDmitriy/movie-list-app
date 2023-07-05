@@ -6,13 +6,23 @@
     </header>
     <div class="tabs">
       <button
-        :class="['btn', { btn_green: movieStore.activeTab === 1 }]"
+        :class="[
+          'btn',
+          {
+            btn_green: movieStore.activeTab === 1,
+          },
+        ]"
         @click="setTab(1)"
       >
         Favorite
       </button>
       <button
-        :class="['btn', { btn_green: movieStore.activeTab === 2 }]"
+        :class="[
+          'btn',
+          {
+            btn_green: movieStore.activeTab === 2,
+          },
+        ]"
         @click="setTab(2)"
       >
         Search
@@ -27,7 +37,10 @@
           :movie="movie"
         />
       </div>
-      <h3>All movies (count: {{ movieStore.totalMoviesCounter }})</h3>
+      <h3>
+        All movies (count:
+        {{ movieStore.totalMoviesCounter }})
+      </h3>
       <Movie
         v-for="movie of movieStore.movies"
         :key="movie.id"
