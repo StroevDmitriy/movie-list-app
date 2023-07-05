@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
+import { IState, IMovie } from '../types/store'
 
 export const useMovieStore = defineStore('movieStore', {
-    state: () => ({
+    state: (): IState => ({
         movies: [
             {
                 id: 1,
@@ -21,5 +22,13 @@ export const useMovieStore = defineStore('movieStore', {
             }
         ],
         activeTab: 1,
-    })
+    }),
+    getters: {
+        watchedMovies(): IMovie[] {
+            return this.movies.filter((movie: IMovie) => movie.isWatched)
+        },
+        totalMoviesCounter(): number {
+            return this.movies.length
+        }
+    },
 })
