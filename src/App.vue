@@ -5,8 +5,14 @@
             <h2>My favorite movies</h2>
         </header>
         <div class="tabs">
-            <button :class="['btn', {btn_green: movieStore.activeTab === 1}]">Favorite</button>
-            <button :class="['btn', {btn_green: movieStore.activeTab === 2}]">Search</button>
+            <button
+                :class="['btn', {btn_green: movieStore.activeTab === 1}]"
+                @click="setTab(1)"
+            >Favorite</button>
+            <button
+                :class="['btn', {btn_green: movieStore.activeTab === 2}]"
+                @click="setTab(2)"
+            >Search</button>
         </div>
         <div class="movies" v-if="movieStore.activeTab === 1">
             <div>
@@ -23,7 +29,6 @@
                 :key="movie.id"
                 :movie="movie"
             />
-            <!-- {{ movieStore.movies }} -->
         </div>
         <div class="search" v-else>Search</div>
     </main>
@@ -32,6 +37,10 @@
 <script setup lang="ts">
 import { useMovieStore } from './stores/MovieStore';
 import Movie from './components/Movie.vue';
+
+const setTab = (id:number) => {
+    movieStore.setActiveTab(id);
+}
 
 const movieStore = useMovieStore()
 </script>
