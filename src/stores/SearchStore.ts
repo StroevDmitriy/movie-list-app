@@ -23,7 +23,6 @@ export const useSearchStore = defineStore("searchStore", {
       const movieStore = useMovieStore();
       movieStore.movies.push({ ...movie, isWatched: false });
       movieStore.activeTab = 1;
-      console.log(movie);
     },
   },
 });
