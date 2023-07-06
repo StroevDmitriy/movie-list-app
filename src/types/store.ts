@@ -10,10 +10,9 @@ export interface ISearchState {
 
 export interface IMovie {
   id: number;
-  original_title: string | null | undefined;
-  overview: string | null | undefined;
-  poster_path: string | null | undefined;
-  release_date: string | null | undefined;
-  isWatched: boolean | null | undefined;
-  // isSearch?: boolean;
+  original_title: string | undefined;
+  overview: string | undefined;
+  poster_path: string | undefined;
+  release_date: string | undefined;
+  isWatched: boolean | undefined;
 }
