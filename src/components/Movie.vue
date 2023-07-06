@@ -12,7 +12,12 @@
       <span class="movie__overview">{{ movie.overview }}</span>
 
       <div class="movie__buttons" v-if="isSearch">
-        <button class="btn btn_green">Add</button>
+        <button
+          class="btn btn_green"
+          @click="searchStore.addToUserMovies(movie)"
+        >
+          Add
+        </button>
       </div>
 
       <div class="movie__buttons" v-else>
@@ -36,12 +41,17 @@
 
 <script lang="ts" setup>
 import { useMovieStore } from "../stores/MovieStore";
+import { useSearchStore } from "../stores/SearchStore";
+
+import { type PropType } from "vue";
+import { IMovie } from "../types/store";
 
 const movieStore = useMovieStore();
+const searchStore = useSearchStore();
 
 const props = defineProps({
   movie: {
-    type: Object,
+    type: Object as PropType<IMovie>,
     required: true,
     default: () => {},
   },
